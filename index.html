@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Week-7-Firebase</title>
+	<script type="text/javascript" src="assets/script.js" async></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="assets/style.css">
+	<script src="https://www.gstatic.com/firebasejs/3.6.3/firebase.js" async></script>
+</head>
+<body>
+  <!-- Fixed navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+			<a class="navbar-brand" href="#">Train Tracker</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class=""><a href="#">Home</a></li>
+            <li><a href="#current-schedule">Current Schedule</a></li>
+            <li><a href="#add-a-train">Add a train</a></li>
+            
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <!-- Begin page content -->
+    <div class="container">
+    	<div class='row'>
+    		<div class="page-header">
+    			<h1>Get started below!</h1>
+    		</div>
+    		<p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis quasi quae quod tempora nostrum maxime in alias tempore, iusto? Aut debitis recusandae nemo dicta sint, velit vitae nisi harum beatae.</p>
+    	</div>
+    	<div class="row">
+    		<div class="col-md-12">
+    		<div class="panel panel-default">
+    			<!-- Default panel contents -->
+    			<div class="panel-heading lead" ><a name="current-schedule">Current Train Schedule</a></div>
+    			<div class="panel-body">
+    				<!-- <p>This is a fun train yay.</p> -->
+    				<!-- Table -->
+    				<table class="table table-hover">
+    					<thead>
+    						<tr>
+    							<th>Train Line</th> <th>Destination</th> <th>Frequency (min)</th> <th>Next Arrival Time</th> <th>Minutes Away</th>
+    						</tr>
+    					</thead>
+    					<tbody>
+    						<tr>
+    							<th scope="row">Reading Railroad</th> <td>Atlantic City</td> <td>15</td> <td>13:00</td> <td>20</td>
+    						</tr>
+    						<tr>
+    							<th scope="row">Shortline</th> <td>Atlantic City</td> <td>15</td> <td>13:00</td> <td>20</td>
+    						</tr>
+    						<tr>
+    							<th scope="row">B&amp;O Railroad</th> <td>Eerie</td> <td>15</td> <td>13:00</td> <td>20</td>
+    						</tr>
+    						<tr>
+    							<th scope="row">Pennsylvania Railroad</th> <td>Pennsylvania</td> <td>15</td> <td>13:00</td> <td>20</td>
+    						</tr> 
+    					</tbody>
+    				</table>
+    			</div>
+    			<div class="panel-footer">
+    				<span class="text-center footerText">Schedule updated 2 minutes ago.</span>
+    			</div>
+    			</div>
+    		</div>
+    	</div>
+    	<div class="row">
+    		<div class="col-md-6">
+    			<div class="panel panel-default">
+    				<div class="panel-heading"><a  name="add-a-train">Add a train</a></div>
+    				<div class="panel-body">
+    					<form>
+    						<div class="form-group">
+    							<label for="trainName">Train Name:</label>
+    							<input type="text" class="form-control" id="trainName">
+    						</div>
+    						<div class="form-group">
+    							<label for="destination">Destination:</label>
+    							<input type="text" class="form-control" id="destination">
+    						</div>
+    						<div class="form-group">
+    							<label for="frequency">Frequency (minutes)</label>
+    							<input type="text" class="form-control" id="frequency">
+    						</div>
+    						<div class="form-group">
+    						<label for="destination">Train Start Time (hh:mm)</label>
+    							<input type="text" class="form-control" id="destination">
+    						</div>
+
+    						<button type="submit" class="btn btn-default">Submit</button>
+    					</form>
+    				</div>
+    			</div>
+    		</div>
+    			<div class="col-md-6">
+    				<img class="img-responsive img-thumbnail" src="https://blog.kaspersky.com/files/2015/12/train-hack-featured-1.jpg">
+    			</div>
+    	</div>
+    </div>
+    <footer class="footer">
+    	<div class="container">
+    		<p class="text-muted">We will make your trains run on time.</p>
+    	</div>
+    </footer>
+
+</body>
+</html>
