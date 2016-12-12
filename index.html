@@ -5,8 +5,11 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="assets/style.css">
 	<script src="https://www.gstatic.com/firebasejs/3.6.3/firebase.js"></script>
-	<script type="text/javascript" src="assets/script.js"></script>
 	<script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script> <!-- Livestamp required jQuery -->
+	<script type="text/javascript" src="assets/livestamp.js"></script>
+
+	<script type="text/javascript" src="assets/script.js"></script>
 </head>
 <body>
   <!-- Fixed navbar -->
@@ -32,7 +35,7 @@
     		<div class="page-header">
     			<h1>Get started below!</h1>
     		</div>
-    		<p class="lead">Check the current train schedule below.</p>
+    		<p class="lead">Check the current train schedule with more information about destination, frequency, arrival time, and time until the next train's arrival.</p>
     	</div>
     	<div class="row">
     		<div class="col-md-12">
@@ -41,7 +44,6 @@
     			<div class="panel-heading lead" ><a name="current-schedule">Current Train Schedule</a></div>
     			<div class="panel-body">
     				<!-- <p>This is a fun train yay.</p> -->
-    				<!-- Table -->
     				<table class="table table-hover">
     					<thead>
     						<tr>
@@ -49,23 +51,12 @@
     						</tr>
     					</thead>
     					<tbody>
-    						<tr>
-    							<th scope="row">Reading Railroad</th> <td>Atlantic City</td> <td>15</td> <td>13:00</td> <td>20</td>
-    						</tr>
-    						<tr>
-    							<th scope="row">Shortline</th> <td>Atlantic City</td> <td>15</td> <td>13:00</td> <td>20</td>
-    						</tr>
-    						<tr>
-    							<th scope="row">B&amp;O Railroad</th> <td>Eerie</td> <td>15</td> <td>13:00</td> <td>20</td>
-    						</tr>
-    						<tr>
-    							<th scope="row">Pennsylvania Railroad</th> <td>Pennsylvania</td> <td>15</td> <td>13:00</td> <td>20</td>
-    						</tr> 
+    						<!-- Table body goes here -->
     					</tbody>
     				</table>
     			</div>
     			<div class="panel-footer">
-    				<span class="text-center footerText">Schedule updated 2 minutes ago.</span>
+    				<span class="text-center footerText">Schedule synced <span id="updatedTimestamp"> just now</span>.</span>
     			</div>
     			</div>
     		</div>
@@ -89,7 +80,7 @@
     							<input type="text" class="form-control" id="frequency">
     						</div>
     						<div class="form-group">
-    						<label for="startTime">Train Start Time (hh:mm)</label>
+    						<label for="startTime">Train Start Time (hh:mm 24-hour)</label>
     							<input type="text" class="form-control" id="startTime">
     						</div>
 

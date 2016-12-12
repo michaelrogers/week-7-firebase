@@ -33,21 +33,27 @@ document.addEventListener('DOMContentLoaded', () => {
 			}
 		});
 		//Next Arrival Time
+		let nextArrivalTime = calculateNextArrival(moment(trainObject.startTime, "HH:mm"), trainObject.frequency);
 		td = document.createElement('td');
-		td.innerHTML = calculateTime(trainObject.startTime, trainObject.frequency)
+		td.innerHTML = nextArrivalTime;
 		tr.appendChild(td);
 
 		//Minutes Away
 		td = document.createElement('td');
-		td.innerHTML = moment().endOf('day').fromNow(); //calculateTime(trainObject.startTime, trainObject.frequency);
+		let span = document.createElement('span');
+		span.setAttribute('data-livestamp', moment(nextArrivalTime, 'HH:mm').format('X'))
+		// td.innerHTML = moment(nextArrivalTime, 'HH:mm').fromNow(); //calculateTime(trainObject.startTime, trainObject.frequency);
+		td.appendChild(span);
 		tr.appendChild(td);
 		document.querySelector('tbody').appendChild(tr);
 
 	}
 
-	const calculateTime = (startTime, frequency) => {
-		return (moment().diff(startTime)) % frequency;
-
+	const calculateNextArrival = (startTime, frequency) => {
+		let minutesDiff = moment().diff(moment(startTime), 'minutes');
+		let minutesUntilNext = frequency - (minutesDiff  % frequency);
+		console.log(minutesUntilNext)
+		return moment().add(minutesUntilNext, 'minutes').format('HH:mm');
 	}
 
 	const submitEvent = () => {
@@ -58,8 +64,10 @@ document.addEventListener('DOMContentLoaded', () => {
 		addTrainObject.startTime = document.getElementById('startTime').value.trim();
 		addTrainObject.dateAdded = firebase.database.ServerValue.TIMESTAMP;
 		if (hh_mm.test(addTrainObject.startTime) &&
-			Number.isInteger(parseInt(addTrainObject.frequency))) { database.ref().push(addTrainObject)
-		} else console.log('No match')
+			Number.isInteger(parseInt(addTrainObject.frequency))) {
+				database.ref().push(addTrainObject);
+				Array.from(document.querySelectorAll('input.form-control')).map((x) => x.value = "");
+		} else console.log('No match');
 
 		return false;
 	}
@@ -72,5 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	document.getElementById('submit').addEventListener('click', submitEvent);
 	document.getElementById('clear').addEventListener('click', clearEvent);
+	let updatedTimestamp = document.getElementById('updatedTimestamp')
+	updatedTimestamp.setAttribute('data-livestamp', moment().format('X'));
 
 });
