@@ -3,12 +3,13 @@
 <head>
 	<title>Week-7-Firebase</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<!-- Latest compiled and minified JavaScript -->
 	<link rel="stylesheet" type="text/css" href="assets/style.css">
 	<script src="https://www.gstatic.com/firebasejs/3.6.3/firebase.js"></script>
 	<script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script> <!-- Livestamp required jQuery -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 	<script type="text/javascript" src="assets/livestamp.js"></script>
-
 	<script type="text/javascript" src="assets/script.js"></script>
 </head>
 <body>
@@ -19,12 +20,11 @@
 			<a class="navbar-brand" href="#">Train Tracker</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li class=""><a href="#">Home</a></li>
-            <li><a href="#current-schedule">Current Schedule</a></li>
-            <li><a href="#add-a-train">Add a train</a></li>
-            
-          </ul>
+		<ul class="nav navbar-nav">
+            <li class=""><a href="#"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+            <li><a href="#current-schedule"><span class="glyphicon glyphicon-calendar"></span> Current Schedule</a></li>
+            <li><a href="#add-a-train"><span class="glyphicon glyphicon-plus-sign"></span> Add a train</a></li>
+    	</ul>
         </div><!--/.nav-collapse -->
       </div>
     </nav>
@@ -41,7 +41,7 @@
     		<div class="col-md-12">
     		<div class="panel panel-default">
     			<!-- Default panel contents -->
-    			<div class="panel-heading lead" ><a name="current-schedule">Current Train Schedule</a></div>
+    			<div class="panel-heading lead"><a href="" name="current-schedule">Current Train Schedule<span class="pull-right glyphicon glyphicon-refresh"></span></a></div>
     			<div class="panel-body">
     				<!-- <p>This is a fun train yay.</p> -->
     				<table class="table table-hover">
@@ -66,7 +66,13 @@
     			<div class="panel panel-default">
     				<div class="panel-heading"><a  name="add-a-train">Add a train</a></div>
     				<div class="panel-body">
+
     					<form>
+    						<div class="hidden alert alert-dismissable fade in">
+								<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+								<p id='alertText'></p>
+							</div>
+							
     						<div class="form-group">
     							<label for="trainName">Train Name:</label>
     							<input type="text" class="form-control" id="trainName">
@@ -97,7 +103,7 @@
     </div>
     <footer class="footer">
     	<div class="container">
-    		<p class="text-muted">We will make your trains run on time.</p>
+    		<p class="text-muted"><span class="glyphicon glyphicon-road"></span> We will make your trains run on time.</p>
     	</div>
     </footer>
 
